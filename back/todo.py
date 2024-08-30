@@ -6,11 +6,12 @@ todo_router = APIRouter()
 todo_list = []
 
 @todo_router.post("/todo")
-async def add_todo(todo: Todo) -> dict:
-    todo_list.append(todo)
+async def add_todo(todo: TodoItem) -> dict:
+    new_todo = Todo(id=len(todo_list) + 1, item=todo.item)
+    todo_list.append(new_todo)
     return {"message": "Todo added successfully"}
 
-@todo_router.get("/todo",response_model=TodoItems)
+@todo_router.get("/todo")
 async def retrieve_todo() -> dict:
     return {
         "todos": todo_list

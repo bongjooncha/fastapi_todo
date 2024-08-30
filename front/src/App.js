@@ -30,7 +30,7 @@ function App() {
           type="text"
           placeholder="Add a new task"
           value={newTodo}
-          onChange={handleAddTodo}
+          onChange={handleInputChange}
         />
         <button onClick={handleAddTodo}>Add Todo</button>
       </div>
